@@ -1,0 +1,15 @@
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\bin\Debug\net6.0\verseny.exe
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\bin\Debug\net6.0\verseny.deps.json
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\bin\Debug\net6.0\verseny.runtimeconfig.json
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\bin\Debug\net6.0\verseny.dll
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\bin\Debug\net6.0\verseny.pdb
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.csproj.AssemblyReference.cache
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.AssemblyInfoInputs.cache
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.AssemblyInfo.cs
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.csproj.CoreCompileInputs.cache
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.dll
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\refint\verseny.dll
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.pdb
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\verseny.genruntimeconfig.cache
+C:\Users\ddaniel\Source\Repos\NajjmanVersenyUwU\verseny\verseny\obj\Debug\net6.0\ref\verseny.dll
