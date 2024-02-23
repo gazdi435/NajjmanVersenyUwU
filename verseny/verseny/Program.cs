@@ -4,15 +4,16 @@ namespace verseny
 {
     internal class Program
     {
+        public static string megadottSzam;
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             //1. alpont
-            List<long> list = File.ReadAllLines("szamok.txt").ToList().ConvertAll(x=>Convert.ToInt64(x)); //szerettel daninak
-            //StreamReader sw = new StreamReader("szamok.txt");
-            //List<long> list = new List<long>();
-            //while (!sw.EndOfStream) {
-                
+            List<long> list = File.ReadAllLines("szamok.txt").ToList().ConvertAll(x => Convert.ToInt64(x)); //szerettel daninak
+                                                                                                            //StreamReader sw = new StreamReader("szamok.txt");
+                                                                                                            //List<long> list = new List<long>();
+                                                                                                            //while (!sw.EndOfStream) {
+
             //}
 
 
@@ -26,7 +27,7 @@ namespace verseny
             // megadott szam LNKO-ja
             while (szam > 1)
             {
-                for (int i = 2; i < szam+1; i++)//bananá
+                for (int i = 2; i < szam + 1; i++)//bananá
                 {
                     if (szam % i == 0)
                     {
@@ -43,11 +44,23 @@ namespace verseny
 
             //b
 
-            string megadottSzam = "2354211341";
-            char[] megadottArray = megadottSzam.ToArray().OrderBy(x=>Convert.ToInt16(x)).ToArray();
-            Console.WriteLine(list.Distinct().Count(x => (Convert.ToString(x)).ToArray().OrderBy(x => Convert.ToInt16(x)).ToArray() == megadottArray));
+            megadottSzam = "2354211341";
+            Console.WriteLine(list.Distinct().ToList().Count(x => Ellenoriz(x)));
 
 
+        }
+
+        public static bool Ellenoriz(long adat)
+        {
+            string adatString = Convert.ToString(adat);
+            for (int i = 0; i < adatString.Length; i++)
+            {
+                if (adatString[i] != megadottSzam[i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
     }
