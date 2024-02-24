@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using System.Globalization;
 using System.IO;
+using System.Threading.Channels;
 namespace verseny
 {
     internal class Program
@@ -40,7 +42,7 @@ namespace verseny
 
             foreach (long l in list)
             {
-                
+
                 if (LNKO_szamitas(szam, l) == 1)
                 {
                     relativ_primek.Add(l);
@@ -52,7 +54,7 @@ namespace verseny
 
             //b
 
-            
+
             long szam2 = 2354211341;
             List<long> anagrammak = new List<long>();
             //Console.WriteLine(list.Distinct().ToList().Count(x => Ellenoriz(x)));
@@ -64,7 +66,7 @@ namespace verseny
             szamok.Sort();
             foreach (long l in list)
             {
-                if (l!=szam2)
+                if (l != szam2)
                 {
                     List<int> beolvasottszamok = new List<int>();
                     for (int i = 0; i < l.ToString().Length; i++)
@@ -77,15 +79,15 @@ namespace verseny
                         anagrammak.Add(l); Console.WriteLine($"talalat: {l}");
                     }
                 }
-                
-                
-                
+
+
+
             }
             Console.WriteLine($"Anagrammak szama: {anagrammak.Count}");
 
             //c
 
-            Dictionary<int, int> elofordulas = new Dictionary<int, int>(){};
+            Dictionary<int, int> elofordulas = new Dictionary<int, int>() { };
 
 
 
@@ -94,7 +96,7 @@ namespace verseny
             //List<int> ketjegyuSzamok = KeresKetjegyuSzamok(szam3);
 
             //Console.WriteLine($"A(z) {szam3} számban előforduló kétjegyű számok: {string.Join(", ", ketjegyuSzamok)}");
-            foreach  (long l in list)
+            foreach (long l in list)
             {
                 List<int> ketjegyuSzamok = KeresKetjegyuSzamok(l);
                 foreach (var item in ketjegyuSzamok)
@@ -124,14 +126,38 @@ namespace verseny
 
             //2. feladatat
             //a)
-            List<List<string>> megyekList = File.ReadAllLines("telepules.txt").Select(x=> x.Split("").ToList()).ToList();
-            //Dictionary<string, string> megyekDic = File.ReadAllLines("megyek.txt").Select(x => x.Split("").ToDictionary(string,string)).ToList();
+            List<List<string>> megyekList = File.ReadAllLines("telepules.txt").Select(x=> x.Split(" ").ToList()).ToList();
+            Dictionary<string, string> megyekDic = File.ReadAllLines("megyek.txt").ToDictionary(X => X.Split("\t")[0], X => X.Split("\t")[1]);
 
-            /*List<string> megoldas = megyekList.OrderByDescending(x => Convert.ToInt16(x[5])).ToList()[1];
-            Console.WriteLine(megyekList.OrderByDescending(x => Convert.ToInt16(x[5])).ToList()[1]);*/
+            List<string> megoldas = megyekList.OrderBy(x => Convert.ToInt32(x[5])).ToList()[1];
+            Console.WriteLine(megyekDic[megoldas[1]] + "-" + megoldas[5]);
+
+            //Borsod-Abauj-Zemplen-15
+            //b) minnél kissebb annél északabra
+            List<Telepules> telepulesLista = Telepules.ConvertToTelepulesList(File.ReadAllLines("telepules.txt").ToList());
+            Console.WriteLine(telepulesLista.OrderBy(x => x.HosszusagiKoordinata).ToList()[0].ToString());
+            //9985 VA 46,8797 16,1731 23,56 584 Felsoszolnok 301 0
+            //c)
+            Console.WriteLine(telepulesLista.Count(x=> x.benneVanE()));
+            //75
 
 
 
+        }
+
+        public static string Legkissebb(List<List<string>> lista)
+        {
+            List<string> megoldas = lista[0];
+            lista.ForEach(x => {
+                if (Convert.ToDouble(x[3]) < Convert.ToDouble(megoldas[3]))
+                {
+                    megoldas = x;
+                }
+            });
+
+            string megoldasString = "";
+            megoldas.ForEach(x => megoldasString += x);
+            return megoldasString;
         }
         public static List<long> osztok(long szam)
         {
